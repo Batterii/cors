@@ -1,6 +1,6 @@
 {
 	"name": "@batterii/cors",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"description": "Wrapper around koa cors",
 	"author": "Batterii, LLC",
 	"license": "UNLICENSED",
