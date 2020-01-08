@@ -1,5 +1,4 @@
 import { Context } from 'koa';
 
-export interface OriginFunction {
-	(ctx: Context): string;
-}
+export type OriginFunction =
+	((ctx: Context) => string) | ((ctx: Context) => PromiseLike<string>);
