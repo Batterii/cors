@@ -11,10 +11,28 @@ the maintainers to respond promptly to our requests. For now it's quicker to
 just put them here.
 
 
-## RegExp Origins
-For now, the only feature added by this wrapper is better typings, and support
-for RegExp patterns in the `origin` option. You can, for example, do something
-like this:
+## Convenience `origin` Options.
+For now, the only features added by this wrapper is better typings, and support
+for arrays and regexp patterns in the `origin` option.
+
+### Array Origins
+Instead of specifying a single origin to allow, you can specify an array of
+them like so:
+
+```ts
+import { cors } from '@batterii/cors';
+
+koa.use(cors({
+	origin: [ 'https://my-host.com', 'https://my-other-host.com' ],
+}));
+```
+
+This will allow cross-origin requests from pages served at either of the above
+origins.
+
+
+### Regex Origins
+You can also sepcify your allowed origins as a regex pattern like so:
 
 ```js
 import { cors } from '@batterii/cors';
@@ -26,6 +44,5 @@ koa.use(cors({
 
 This will allow cross-origin requests from pages served over both HTTP and HTTPS
 from `localhost`, regardless of port number.
-
 
 [1]: https://www.npmjs.com/package/@koa/cors

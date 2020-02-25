@@ -1,3 +1,3 @@
 import { OriginFunction } from './origin-function';
 
-export type OriginOption = string|RegExp|OriginFunction;
+export type OriginOption = string|string[]|RegExp|OriginFunction;
