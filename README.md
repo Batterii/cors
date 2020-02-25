@@ -45,4 +45,22 @@ koa.use(cors({
 This will allow cross-origin requests from pages served over both HTTP and HTTPS
 from `localhost`, regardless of port number.
 
+
+#### IMPORTANT NOTE ABOUT REGEX ORIGINS
+If you are using a regex origin option in production, you should be very careful
+with the regex you use. This regex will almost certainly need to be executed
+with every single request to your server, and while regular browser users can't
+change their Origin headers, there is nothing stopping an attacker using some
+other client program to specify whatever Origin header they like.
+
+This is a wide-open vector for [ReDoS][2] attacks that could easily take down
+your whole API service. Therefore, to use this option safely in production, you
+need to be absolutely certain that your regex is not vulnerable. You can do this
+by following the guidelines described in the linked OWASP article, *or* you can
+play on the safe side and only use regex origins for development (the localhost
+example above) while explicitly specifying all of your production origins using
+an array, as described above.
+
+
 [1]: https://www.npmjs.com/package/@koa/cors
+[2]: https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS
